@@ -4,59 +4,72 @@ import { variables } from "../../../styles/variables"
 import { NavLink } from "react-router-dom";
 
 export function Sidebar({ state, setState }) {
-    return (
-        <Main $isopen={state.toString()}>
-            <span className="Sidebarbutton" onClick={() => setState(!state)}>
-                {<variables.iconoflechaderecha />}
-            </span>
-            <Container $isopen={state.toString()} className={state ? "active" : ""}>
-                <div className="Logocontent">
-                    <div className="imgcontent">
-                        <img src={variables.logo} />
-                    </div>
-                    <h2>StockPRO</h2>
-                </div>
-                {LinksArray.map(({ icon, label, to }) => (
-                    <div
-                        className={state ? "LinkContainer active" : "LinkContainer"}
-                        key={label}
-                    >
-                        <NavLink
-                            to={to}
-                            className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
-                        >
-                            <div className="Linkicon">{icon}</div>
-                            <span className={state ? "label_ver" : "label_oculto"}>
-                                {label}
-                            </span>
+  return (
+    <Main $isopen={state.toString()}>
+      {/* Boton de despliqgue */}
+      <span className="Sidebarbutton" onClick={() => setState(!state)}>
+        {<variables.iconoflechaderecha />}
+      </span>
 
-                        </NavLink>
-                    </div>
-                ))}
-                <Divider />
-                {SecondarylinksArray.map(({ icon, label, to }) => (
-                    <div
-                        className={state ? "LinkContainer active" : "LinkContainer"}
-                        key={label}
-                    >
-                        <NavLink
-                            to={to}
-                            className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
-                        >
-                            <div className="Linkicon">{icon}</div>
-                            <span className={state ? "label_ver" : "label_oculto"}>
-                                {label}
-                            </span>
+      <Container $isopen={state.toString()} className={state ? "active" : ""}>
+        {/* Logo y nombre superiores */}
+        <div className="Logocontent">
+          <div className="imgcontent">
+            <img src={variables.logo} />
+          </div>
+          <h2>Gator Stock</h2>
+        </div>
 
-                        </NavLink>
-                    </div>
-                ))}
-                <ToggleTema />
-                <Divider />
-                {state && <SidebarCard />}
-            </Container>
-        </Main>
-    );
+        {/* Home / Kardex / Reportes */}
+        {LinksArray.map(({ icon, label, to }) => (
+          <div
+            className={state ? "LinkContainer active" : "LinkContainer"}
+            key={label}
+          >
+            <NavLink
+              to={to}
+              className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
+            >
+              <div className="Linkicon">{icon}</div>
+              <span className={state ? "label_ver" : "label_oculto"}>
+                {label}
+              </span>
+            </NavLink>
+          </div>
+        ))}
+
+        {/* Linea division */}
+        <Divider />
+
+        {/* Config / TaggleTema */}
+        {SecondarylinksArray.map(({ icon, label, to }) => (
+          <div
+            className={state ? "LinkContainer active" : "LinkContainer"}
+            key={label}
+          >
+            <NavLink
+              to={to}
+              className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
+            >
+              <div className="Linkicon">{icon}</div>
+              <span className={state ? "label_ver" : "label_oculto"}>
+                {label}
+              </span>
+            </NavLink>
+          </div>
+        ))}
+
+        {/* Cambio de tema oscuro Claro */}
+        <ToggleTema />
+
+        {/* Linea division */}
+        <Divider />
+
+        {state && <SidebarCard />}
+
+      </Container>
+    </Main>
+  );
 }
 const Container = styled.div`
   color: ${({ theme }) => theme.text};
@@ -85,36 +98,25 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 60px;
+    padding-bottom: 20px;
     .imgcontent {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 30px;
+      width: 50px;
+      margin: 5px
       cursor: pointer;
       transition: 0.3s ease;
-      transform: ${({ $isopen }) => ($isopen === "true" ? `scale(0.7)` : `scale(1.5)`)}
-        rotate(${({ theme }) => theme.logorotate});
       img {
         width: 100%;
-        animation: flotar 1.7s ease-in-out infinite alternate;
       }
     }
     h2 {
       display: ${({ $isopen }) => ($isopen === "true" ? `block` : `none`)};
-    }
-    @keyframes flotar {
-      0% {
-        transform: translate(0, 0px);
-      }
-      50% {
-        transform: translate(0, 4px);
-      }
-      100% {
-        transform: translate(0, -0px);
-      }
+      margin: 5px
     }
   }
+  
   .LinkContainer {
     margin: 5px 0;
     transition: all 0.3s ease-in-out;
@@ -145,13 +147,13 @@ const Container = styled.div`
         opacity: 0;
       }
       &.active {
-        color: ${(props) => props.theme.bg5};
+        color: ${({theme}) => theme.bg5};
         font-weight:600;
         &::before {
           content: "";
           position: absolute;
           height: 100%;
-          background: ${(props) => props.theme.bg5};
+          background: ${({theme}) => theme.bg5};
           width: 4px;
           border-radius: 10px;
           left: 0;
@@ -181,7 +183,7 @@ const Main = styled.div`
     transition: all 0.2s;
     z-index: 2;
     transform: ${({ $isopen }) =>
-        $isopen === "true" ? `translateX(162px) rotate(3.142rad)` : `initial`};
+    $isopen === "true" ? `translateX(162px) rotate(3.142rad)` : `initial`};
     color: ${({ theme }) => theme.text};
   }
 `;

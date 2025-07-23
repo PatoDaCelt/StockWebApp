@@ -1,6 +1,7 @@
 import { variables } from "../styles/variables";
 import { AiOutlineHome, AiOutlineSetting } from "react-icons/ai";
 
+//Data de usuario
 export const DesplegableUser = [
   {
     text: "Mi perfil",
@@ -19,9 +20,7 @@ export const DesplegableUser = [
   },
 ];
 
-
-
-//data SIDEBAR
+//Data de la primer lista de navegaciones en SIDEBAR
 export const LinksArray = [
   {
     label: "Home",
@@ -40,6 +39,8 @@ export const LinksArray = [
   },
  
 ];
+
+//Data de la segunda lista de navegaciones en SIDEBAR
 export const SecondarylinksArray = [
   {
     label: "Configuración",
@@ -48,6 +49,7 @@ export const SecondarylinksArray = [
   },
 
 ];
+
 //temas
 export const TemasData = [
   {
