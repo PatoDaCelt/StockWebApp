@@ -1,8 +1,9 @@
 import styled, { ThemeProvider } from "styled-components";
-import { AuthContextProvider, MyRoutes, Light, Dark, Sidebar } from "./index";
+import { AuthContextProvider, MyRoutes, Light, Dark, Sidebar, MenuHambur } from "./index";
 import { createContext, useState } from "react";
 import { Device } from "./styles/breackpoints";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const ThemeContext = createContext(null);
 
 function App() {
@@ -17,9 +18,9 @@ function App() {
           <AuthContextProvider>
             <Container className={sidebarOpen ? "active" : ""}>
               <section className="ContentSidebar">
-                <Sidebar state={sidebarOpen} setState={()=>setSidebarOpen(!sidebarOpen)}/>
+                <Sidebar state={sidebarOpen} setState={() => setSidebarOpen(!sidebarOpen)} />
               </section>
-              <section className="ContentMenuambur">MenuHambur</section>
+              <section className="ContentMenuambur"><MenuHambur /></section>
               <section className="ContentRoutes">
                 <MyRoutes />
               </section>
