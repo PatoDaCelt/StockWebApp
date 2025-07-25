@@ -14,7 +14,7 @@ export function MenuHambur() {
                     <HamburgerMenu onClick={() => setClick(!click)}>
                         <label
                             className={click ? "toggle active" : "toggle"}
-                            for="checkbox"
+                            htmlFor="checkbox"
                         >
                             <div className="bars" id="bar1" />
                             <div className="bars" id="bar2" />
