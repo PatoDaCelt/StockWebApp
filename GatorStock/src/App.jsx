@@ -1,7 +1,9 @@
 import styled, { ThemeProvider } from "styled-components";
-import { AuthContextProvider, MyRoutes, Light, Dark, Sidebar, MenuHambur } from "./index";
+import { AuthContextProvider, MyRoutes, Light, Dark, Sidebar, MenuHambur, Login } from "./index";
 import { createContext, useState } from "react";
+import { useLocation } from "react-router-dom"
 import { Device } from "./styles/breackpoints";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const ThemeContext = createContext(null);
@@ -11,20 +13,31 @@ function App() {
   const theme = themeuse === "light" ? "light" : "dark";
   const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { pathname } = useLocation();
+
   return (
     <>
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <ThemeProvider theme={themeStyle}>
           <AuthContextProvider>
-            <Container className={sidebarOpen ? "active" : ""}>
-              <section className="ContentSidebar">
-                <Sidebar state={sidebarOpen} setState={() => setSidebarOpen(!sidebarOpen)} />
-              </section>
-              <section className="ContentMenuambur"><MenuHambur /></section>
-              <section className="ContentRoutes">
-                <MyRoutes />
-              </section>
-            </Container>
+            {   /* Si la ruta donde estamos es login mostrar Login*/
+              pathname == "/login" ? (
+                <Login />
+              ) : (
+                /* Si la ruta donde estamos es diferente login mostrar todo*/
+                <Container className={sidebarOpen ? "active" : ""}>
+                  <section className="ContentSidebar">
+                    <Sidebar state={sidebarOpen} setState={() => setSidebarOpen(!sidebarOpen)} />
+                  </section>
+                  <section className="ContentMenuambur"><MenuHambur /></section>
+                  <section className="ContentRoutes">
+                    <MyRoutes />
+                  </section>
+                </Container>
+              )
+            }
+            <ReactQueryDevtools initialIsOpen={false} />
+
           </AuthContextProvider>
         </ThemeProvider>
       </ThemeContext.Provider>

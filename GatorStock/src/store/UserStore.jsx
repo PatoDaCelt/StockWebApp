@@ -8,7 +8,7 @@ export const useUserStore = create((set, get) => ({
             email: p.correo,
             password: p.pass,
         });
-        console.log('data del registro del  usuario', data)
+        console.log('data del registro del user auth', data)
 
         if (error) return null;
 
