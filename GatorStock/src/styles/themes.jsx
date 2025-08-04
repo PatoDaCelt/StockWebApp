@@ -15,7 +15,7 @@ export const Light = {
     fontxxxl: "4em",
     fontButton: "0.875em",
     navHeight: "5rem",
-    whiteBg: "#baf772",
+    whiteBg: "#6ba3be",
     bg: "#d1d1d1",
     bgAlpha: "#ffffff",
     bg2: "rgb(245,245,245)",
@@ -35,7 +35,8 @@ export const Light = {
     colorScroll: "#cac9ca",
     bgcards: "#ffffff",
     colortitlecard: "#363637",
-    colorsubtitlecard: "#080808"
+    colorsubtitlecard: "#080808",
+    warning: "#f94d4a"
 }
 export const Dark = {
     colortitlecard: "#8C9298",
@@ -74,5 +75,6 @@ export const Dark = {
     slideroffset: "0.3em",
     sizeoficon: "1.4em",
     colorSubtitle: "#b7b7b7",
-    colorScroll: "#434343"
+    colorScroll: "#434343",
+    warning: "#f94d4a"
 };
