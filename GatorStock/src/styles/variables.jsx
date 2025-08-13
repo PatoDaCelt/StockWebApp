@@ -4,7 +4,7 @@ import { BsEmojiLaughing } from "react-icons/bs";
 import { RiDeleteBin2Line, RiEditLine } from "react-icons/ri";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiVipCrownFill } from "react-icons/ri";
-import { BiUserCircle } from "react-icons/bi";
+import { FaRegCircleUser } from "react-icons/fa6";
 import { RiSettings3Line } from "react-icons/ri";
 import { MdExitToApp } from "react-icons/md";
 import { FcPicture } from "react-icons/fc";
@@ -82,7 +82,7 @@ export const variables = {
   boxshadowGray: `0px 10px 15px -3px rgba(0,0,0,0.1)`,
   iconoFlechabajo: IoIosArrowDown,
   iconocorona: RiVipCrownFill,
-  iconoUser: BiUserCircle,
+  iconoUser: FaRegCircleUser,
   iconoSettings: RiSettings3Line,
   iconoCerrarSesion: MdExitToApp,
   iconofotovacia: FcPicture,

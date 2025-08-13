@@ -1,13 +1,21 @@
 export { default as App } from './App';
 export * from './components/atomos/Icono';
+
 export * from './components/moleculas/Btnsave';
+export * from './components/moleculas/BtnCircular';
+
+
 export * from './components/organismos/MenuHambur';
 export * from './components/organismos/ToggleTema';
 export * from './components/organismos/FooterLogin';
+export * from './components/organismos/Header';
+export * from './components/organismos/ListaMenuDesplegable';
+
 export * from './components/organismos/formularios/InputText';
 export * from './components/organismos/formularios/RegistrarAdmin';
 export * from './components/organismos/sidebar/Sidebar';
 export * from './components/organismos/sidebar/SidebarCard';
+
 export * from './components/templates/HomeTemplate';
 export * from './components/templates/LoginTemplate';
 
